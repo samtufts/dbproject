@@ -11,11 +11,11 @@ function Actions({ value, removeRow, addRow, data, id, setData, alertSetter }) {
             <div className="actions">
                 <AddUserDialog add={false} addRow={addRow} data={data} id={id} setData={setData} alertSetter={alertSetter}/>
                 
-                <Tooltip title="Delete">
+                {/* <Tooltip title="Delete">
                     <Button value={value} onClick={removeRow} variant="outlined" color="primary">
                         <DeleteIcon/>
                     </Button>
-                </Tooltip>
+                </Tooltip> */}
             </div>
         </> 
     )
