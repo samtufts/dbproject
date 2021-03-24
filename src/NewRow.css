@@ -1,0 +1,18 @@
+input.addData {
+  border: solid 1px #88c7ff;
+  border-radius: 5px;
+  background-color: none;
+  display: flex;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  min-height: 25px;
+}
+
+.MuiFormControl-root, .MuiTextField-root, .addData{
+  /* max-width: 100px; */
+  display: block
+}
+
+form {
+  margin-bottom: 50px;
+}

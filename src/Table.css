@@ -1,0 +1,82 @@
+/* CSS for the Table component, includes search field */
+
+/* Search field component from Material UI */
+/* .MuiInputBase-root {
+  margin-bottom: 15px;
+  min-width: 400px;
+} */
+
+/* MuiOutlinedInput-root MuiInputBase-formControl */
+table {
+  border-spacing: 0;
+  border: 1px solid #ededed;
+  max-width: 100%;
+}
+
+table tr:last-child td {
+  border-bottom: 0;
+}
+
+table th, table td {
+  margin: 0;
+  padding: 0.5rem;
+  border-bottom: 1px solid #ededed;
+  border-right: 1px solid #ededed;
+  position: relative;
+}
+
+table th:last-child,
+table td:last-child {
+  border-right: 0;
+}
+table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* .badge {
+  background-color: #9ae6b4;
+  color: #22543d;
+  margin-right: 4px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+} */
+
+/* search table data */
+.searchField{
+  min-width: 500px;
+  min-height: 40px;
+  display: flex;
+  border: 1px solid #256ead;
+  border-radius: 5px;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-style: italic;
+  min-width: 30%;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #256ead;
+  opacity: 1; /* Firefox */
+  padding-left: 10px;
+}
+
+/* button{
+  background-color: #88c7ff;
+  border: 1px solid #88c7ff;
+  border-radius: 5px;
+  color: white;
+  padding: 8px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+}
+
+button:hover{
+  background-color: white;
+  border: 1px solid #256ead;
+  color:#256ead;
+} */
