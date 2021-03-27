@@ -97,12 +97,12 @@ function App() {
       Header: " ", // don't know how to get rid of this header
 
       columns: [
-        {
-          Header: "Row #",
-          Cell: ({ row }) => <span>{row.index}</span>,
-          Filter: "",
-          filter: 'includes',
-        },
+        // {
+        //   Header: "Row #",
+        //   Cell: ({ row }) => <span>{row.index}</span>,
+        //   Filter: "",
+        //   filter: 'includes',
+        // },
         {
           Header: "",
           accessor: "Class",
