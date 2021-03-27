@@ -9,6 +9,10 @@ import SelectColumnFilter from './filterList'
 import LinkIcon from '@material-ui/icons/Link';
 import Actions from './actions'
 import Main from './main'
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Login from './login';
+import Logout from './logout';
+import NewLogin from './NewLogin'
 
 function App() {
   
@@ -156,12 +160,35 @@ function App() {
       setData(result.data)
     })()
   }, [])
- 
+
+  const [token, setToken] = useState();
+
+  if (!token) {
+    return <NewLogin setToken={setToken} />
+  }
+
   return (
+    // <div className="App">
+    //   <Main />
+    //   <ShowAlert state={showAlert} setter={alertSetter} dog={"hello"}/>
+    //   <Table columns={columns} data={data} updateMyData={updateMyData} setData={setData} setShowAlert={setShowAlert} addRow={addRow} alertSetter={alertSetter} />
+    // </div>
+
     <div className="App">
-      {/* <Main /> */}
       <ShowAlert state={showAlert} setter={alertSetter} dog={"hello"}/>
-      <Table columns={columns} data={data} updateMyData={updateMyData} setData={setData} setShowAlert={setShowAlert} addRow={addRow} alertSetter={alertSetter} />
+      <Table columns={columns} data={data} updateMyData={updateMyData} setData={setData} setShowAlert={setShowAlert} addRow={addRow} alertSetter={alertSetter}
+      />
+      
+      <BrowserRouter>
+        <Switch>
+          <Route path="/login">
+            <NewLogin />
+          </Route>
+          <Route path="/logout">
+            <NewLogin />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
