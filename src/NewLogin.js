@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import './NewLogin.css';
 
 async function loginUser(credentials) {
-    return fetch('https://stark-anchorage-94670.herokuapp.com/login', {
+    http://localhost:3000/login
+    // https://stark-anchorage-94670.herokuapp.com/login
+    return fetch('http://localhost:3000/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -13,18 +15,22 @@ async function loginUser(credentials) {
         .then(data => data.json())
 }
 
-export default function NewLogin({ setToken }) {
+export default function NewLogin({ setToken, alertSetter }) {
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
 
     const handleSubmit = async e => {
         e.preventDefault();
-        const token = await loginUser({
-            username,
-            password
-        });
+        const token = await loginUser({ username, password });
 
-        setToken(token);
+        if (token.token == "validToken") {
+            alertSetter(true, "success", "Success logging in")
+            console.log("token: ", token)
+            setToken(token);
+            
+        } else {
+            alertSetter(true, "error", "Error logging in")
+        }
     }
 
     return (

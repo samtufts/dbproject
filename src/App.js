@@ -15,7 +15,6 @@ import Logout from './logout';
 import NewLogin from './NewLogin'
 
 function App() {
-  
   // data array stores the data from the DB
   const [data, setData] = useState([])
   
@@ -159,24 +158,35 @@ function App() {
 
   // Get all data from DB and add it to the state 
   useEffect(() => {(async () => {
-    const result = await axios("https://stark-anchorage-94670.herokuapp.com/getData")
-      setData(result.data)
-    })()
-  }, [])
+    let testing = false
+    let getData = '';
+    if (testing) {
+      getData = "http://localhost:3000/getData";
+    } else {
+      getData = "https://stark-anchorage-94670.herokuapp.com/getData";
+    }
+    
+    axios.get(getData)
+        .then((result) => {
+            setData(result.data)
+            console.log(data)
+        });
+
+  })()
+}, [])
 
 
   if (!token) {
-    return <NewLogin setToken={setToken} />
+      return (
+        <>  
+        <ShowAlert state={showAlert} setter={alertSetter} dog={"hello"}/>
+        <NewLogin setToken={setToken} alertSetter={alertSetter} />
+        </>
+      )
   }
 
-  return (
-    // <div className="App">
-    //   <Main />
-    //   <ShowAlert state={showAlert} setter={alertSetter} dog={"hello"}/>
-    //   <Table columns={columns} data={data} updateMyData={updateMyData} setData={setData} setShowAlert={setShowAlert} addRow={addRow} alertSetter={alertSetter} />
-    // </div>
-
-    <div className="App">
+    return (
+      <div className="App">
       <ShowAlert state={showAlert} setter={alertSetter} dog={"hello"}/>
       <Table columns={columns} data={data} updateMyData={updateMyData} setData={setData} setShowAlert={setShowAlert} addRow={addRow} alertSetter={alertSetter}
       />
