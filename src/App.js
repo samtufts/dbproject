@@ -18,7 +18,10 @@ function App() {
   
   // data array stores the data from the DB
   const [data, setData] = useState([])
-
+  
+  // store the username/pwd
+  const [token, setToken] = useState();
+  
   // state for showing alerts
   const [showAlert, setShowAlert] = useState({
     show: false,
@@ -161,7 +164,6 @@ function App() {
     })()
   }, [])
 
-  const [token, setToken] = useState();
 
   if (!token) {
     return <NewLogin setToken={setToken} />
@@ -178,7 +180,6 @@ function App() {
       <ShowAlert state={showAlert} setter={alertSetter} dog={"hello"}/>
       <Table columns={columns} data={data} updateMyData={updateMyData} setData={setData} setShowAlert={setShowAlert} addRow={addRow} alertSetter={alertSetter}
       />
-      
       <BrowserRouter>
         <Switch>
           <Route path="/login">
